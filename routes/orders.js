@@ -1,8 +1,9 @@
 const { Router } = require("express");
 const router = Router();
+const auth = require("../middleware/auth");
 const Order = require("../models/order");
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
     try {
         const user = await req.user.populate(["cart.items.courseId"]);
         const courses = user.cart.items.map((i) => ({
@@ -24,7 +25,7 @@ router.post("/", async (req, res) => {
     }
 });
 
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
     try {
         const orders = await Order.find({
             "user.userId": req.user._id,
