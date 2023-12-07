@@ -48,6 +48,20 @@
             <form action="/auth/register" method="post">
                 <div class="input-field">
                     <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        class="validate"
+                        required
+                    />
+                    <label for="name">Name</label>
+                    <span
+                        class="helper-text"
+                        data-error="Enter your name"
+                    ></span>
+                </div>
+                <div class="input-field">
+                    <input
                         id="remail"
                         name="email"
                         type="text"

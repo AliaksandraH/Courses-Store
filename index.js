@@ -16,6 +16,7 @@ const coursesRoutes = require("./routes/courses");
 const cartRoutes = require("./routes/cart");
 const ordersRoutes = require("./routes/orders");
 const authRoutes = require("./routes/auth");
+const userMiddleware = require("./middleware/user");
 const app = express();
 dotenv.config();
 
@@ -44,6 +45,7 @@ app.use(
     })
 );
 app.use(varMiddleware);
+app.use(userMiddleware);
 
 app.use("/", homeRoutes);
 app.use("/add", addRoutes);
