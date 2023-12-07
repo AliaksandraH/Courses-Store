@@ -2,6 +2,7 @@ const dotenv = require("dotenv");
 const express = require("express");
 const path = require("path");
 const csrf = require("csurf");
+const flash = require("connect-flash");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 var MongoDBStore = require("connect-mongodb-session")(session);
@@ -18,6 +19,7 @@ const cartRoutes = require("./routes/cart");
 const ordersRoutes = require("./routes/orders");
 const authRoutes = require("./routes/auth");
 const userMiddleware = require("./middleware/user");
+
 const app = express();
 dotenv.config();
 
@@ -46,6 +48,7 @@ app.use(
     })
 );
 app.use(csrf());
+app.use(flash());
 app.use(varMiddleware);
 app.use(userMiddleware);
 
