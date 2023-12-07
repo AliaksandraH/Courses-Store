@@ -17,6 +17,11 @@
                         <a href="/courses/{{id}}/edit?allow=true">Edit</a>
                         <form action="/cart/add" method="post">
                             <input type="hidden" name="id" value="{{id}}" />
+                            <input
+                                type="hidden"
+                                name="_csrf"
+                                value="{{@root.csrf}}"
+                            />
                             <button
                                 type="submit"
                                 class="btn btn-primary"

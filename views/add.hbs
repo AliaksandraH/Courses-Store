@@ -1,20 +1,30 @@
 <h2>Add a new course</h2>
 <form action="/add" method="post">
     <div class="input-field">
-        <input id="title" name="title" type="text" class="validate" required>
+        <input id="title" name="title" type="text" class="validate" required />
         <label for="title">Course name</label>
         <span class="helper-text" data-error="Enter a name"></span>
     </div>
     <div class="input-field">
-        <input id="price" name="price" type="number" class="validate" required min="1">
+        <input
+            id="price"
+            name="price"
+            type="number"
+            class="validate"
+            required
+            min="1"
+        />
         <label for="price">Course price</label>
         <span class="helper-text" data-error="Enter the price"></span>
     </div>
     <div class="input-field">
-        <input id="img" name="img" type="text" class="validate" required>
+        <input id="img" name="img" type="text" class="validate" required />
         <label for="img">URL Course icon</label>
-        <span class="helper-text" data-error="Enter the URL of the image"></span>
+        <span
+            class="helper-text"
+            data-error="Enter the URL of the image"
+        ></span>
     </div>
-
+    <input type="hidden" name="_csrf" value="{{csrf}}" />
     <button class="btn btn-primary">Add</button>
 </form>
