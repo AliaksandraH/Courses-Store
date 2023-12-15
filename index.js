@@ -19,6 +19,7 @@ const cartRoutes = require("./routes/cart");
 const ordersRoutes = require("./routes/orders");
 const authRoutes = require("./routes/auth");
 const userMiddleware = require("./middleware/user");
+const keys = require("./keys");
 
 const app = express();
 dotenv.config();
@@ -41,7 +42,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(
     session({
-        secret: "some secret value",
+        secret: keys.SESSION_SECRET,
         resave: false,
         saveUninitialized: false,
         store: store,

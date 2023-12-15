@@ -21,6 +21,8 @@
     "express-handlebars": "^7.1.2",
     "express-session": "^1.17.3",
     "mongoose": "^8.0.2",
+    "nodemailer": "^6.9.7",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
