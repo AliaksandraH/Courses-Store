@@ -11,6 +11,8 @@ const {
     allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
 const mongoose = require("mongoose");
+const helmet = require("helmet");
+const compression = require("compression");
 const varMiddleware = require("./middleware/variables");
 const homeRoutes = require("./routes/home");
 const addRoutes = require("./routes/add");
@@ -56,6 +58,13 @@ app.use(
 app.use(fileMiddleware.single("avatar"));
 app.use(csrf());
 app.use(flash());
+app.use(
+    helmet({
+        contentSecurityPolicy: false,
+        crossOriginEmbedderPolicy: false,
+    })
+);
+app.use(compression());
 app.use(varMiddleware);
 app.use(userMiddleware);
 
